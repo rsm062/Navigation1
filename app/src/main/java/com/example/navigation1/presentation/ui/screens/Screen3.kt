@@ -14,10 +14,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import com.example.navigation1.presentation.navigation.Screens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Screen3() {
+fun Screen3(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(title = { Text(text = "Pantalla 3") })
@@ -28,7 +30,7 @@ fun Screen3() {
             verticalArrangement = Arrangement.Center
         ) {
 
-            Button(onClick = { /* Vuelve a la pantalla anterior */ }) {
+            Button(onClick = { navController.popBackStack() }) {
                 Text(text = "Volver")
             }
         }
